@@ -1,4 +1,3 @@
-
 from io import BytesIO
 import traceback
 
@@ -15,20 +14,22 @@ app = FastAPI(
     version="1.0.0",
 )
 
-# Local development frontend access.
-# Restrict origins before production deployment.
+# Allow requests from the deployed frontend and local development environments.
+ALLOWED_ORIGINS = [
+    "https://idexis-frontend.onrender.com",
+    "http://127.0.0.1:5500",
+    "http://localhost:5500",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://127.0.0.1:5500",
-        "http://localhost:5500",
-    ],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-MAX_UPLOAD_SIZE = 10 * 1024 * 1024
+MAX_UPLOAD_SIZE = 10 * 1024 * 1024  # 10 MB
 
 ALLOWED_TYPES = {
     "image/jpeg",
