@@ -5,7 +5,7 @@
  */
 
 const CONFIG = {
-  baseUrl: "http://127.0.0.1:8000/api",
+  baseUrl: "https://idexis-backend.onrender.com/api",
 };
 
 let latestAnalysis = null;
