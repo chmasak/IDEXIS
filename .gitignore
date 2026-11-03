@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Environment variables
+.env
+.env.*
+
+# Datasets and generated results
+datasets/
+results/
+
+# IDE files
+.vscode/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Backend temporary files
+backend/__pycache__/
+backend/.venv/
+
+# Model diagnostics
+backend/models/*.csv
+backend/models/*.txt
